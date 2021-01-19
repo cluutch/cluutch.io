@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @quote.date %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @quote.currency %>
+</p>
+
+<p>
+  <strong>Mean price per oz:</strong>
+  <%= @quote.mean_price_per_oz %>
+</p>
+
+<p>
+  <strong>Market1 price per oz:</strong>
+  <%= @quote.market1_price_per_oz %>
+</p>
+
+<p>
+  <strong>Market2 price per oz:</strong>
+  <%= @quote.market2_price_per_oz %>
+</p>
+
+<p>
+  <strong>Market3 price per oz:</strong>
+  <%= @quote.market3_price_per_oz %>
+</p>
+
+<p>
+  <strong>Market4 price per oz:</strong>
+  <%= @quote.market4_price_per_oz %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>
