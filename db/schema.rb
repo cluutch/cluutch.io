@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_01_19_122200) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "quotes", force: :cascade do |t|
     t.date "date"
     t.string "currency"
