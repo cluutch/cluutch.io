@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 5.0.0.beta1'
 gem 'jquery-rails'
 
+gem 'meta-tags'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rexml'
