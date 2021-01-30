@@ -1,0 +1,9 @@
+$primary: #920258;
+$secondary: #E5E5E5;
+$light: #FFFBFB;
+
+@import "bootstrap";
+
+nav.navbar ul.navbar-nav a.nav-link {
+  @extend .text-primary
+}

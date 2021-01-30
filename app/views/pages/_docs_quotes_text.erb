@@ -1,0 +1,66 @@
+<div class="my-lg-1">
+  <h5>Quotes</h5>
+  <p>
+    <code>Quote</code>s are how the average price of weed is captured in cluutch. 
+    A <code>Quote</code> is composed of several prices taken from public markets (eg dispensary websites).
+    Only four markets are currently being sampled.
+    Minimal effort is currently being made to compare similar mid-level hybrid strains.
+  </p>
+
+  <div class="my-lg-4">
+    <h6>HTTP REQUEST</h6>
+    <p><code>GET https://api.cuurl.io/v1/quotes</code></p>
+  </div>
+
+  <div class="my-lg-4">
+    <h6>URL PARAMETERS</h6>
+    <p>None currently supported</p>
+  </div>
+
+  <div class="my-lg-4">
+    <h6>RESPONSE</h6>
+    <p>The response will be an array of quote objects. A quote has the fields below.</p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Field</th>
+          <th scope="col">Type</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">date</th>
+          <td>YYYY-MM-DD</td>
+          <td>Date of prices that the quote is for.</td>
+        </tr>
+        <tr>
+          <th scope="row">mean_price_per_oz</th>
+          <td>decimal</td>
+          <td>The mean price for one ounce of marijuana from all markets. Price in USD.</td>
+        </tr>
+        <tr>
+          <th scope="row">market1_price_per_oz</th>
+          <td>decimal</td>
+          <td>The price of one ounce of marijuana from Market 1. Price in USD.</td>
+        </tr>
+        <tr>
+          <th scope="row">market2_price_per_oz</th>
+          <td>decimal</td>
+          <td>The price of one ounce of marijuana from Market 2. Price in USD.</td>
+        </tr>
+        <tr>
+          <th scope="row">market3_price_per_oz</th>
+          <td>decimal</td>
+          <td>The price of one ounce of marijuana from Market 3. Price in USD.</td>
+        </tr>
+        <tr>
+          <th scope="row">market4_price_per_oz</th>
+          <td>decimal</td>
+          <td>The price of one ounce of marijuana from Market 4. Price in USD.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
