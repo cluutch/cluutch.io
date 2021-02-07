@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_152025) do
   end
 
   create_table "v2_quotes", force: :cascade do |t|
+    t.date "date"
     t.string "vendor_name"
     t.string "vendor_url"
     t.string "vendor_branch"
