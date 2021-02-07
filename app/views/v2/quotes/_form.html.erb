@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div class="field">
     <%= form.label :vendor_name %>
     <%= form.text_field :vendor_name %>
   </div>
@@ -38,7 +43,7 @@
 
   <div class="field">
     <%= form.label :v2_jurisdiction_id %>
-    <%= form.text_field :v2_jurisdiction_id %>
+    <%= form.select :v2_jurisdiction_id, @jurisdictions %>
   </div>
 
   <div class="actions">

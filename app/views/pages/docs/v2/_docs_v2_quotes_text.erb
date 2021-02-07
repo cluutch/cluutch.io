@@ -1,0 +1,66 @@
+<div class="my-lg-1">
+  <h5>Quotes</h5>
+  <p>
+    <code>Quote</code>s are how the price of weed is captured in cluutch. 
+    A <code>Quote</code> is the price of weed at a specific vendor on a specific day.
+    The lowest price for an ounce is taken from each vendor sampled. 
+    If an exact ounce is not available, the largest available unit is used.
+  </p>
+
+  <div class="my-lg-4">
+    <h6>HTTP REQUEST</h6>
+    <p><code>GET https://api.cluutch.io/v2/quotes</code></p>
+  </div>
+
+  <div class="my-lg-4">
+    <h6>URL PARAMETERS</h6>
+    <p>None currently supported</p>
+  </div>
+
+  <div class="my-lg-4">
+    <h6>RESPONSE</h6>
+    <p>The response will be an array of quote objects. A quote has the fields below.</p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Field</th>
+          <th scope="col">Type</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">date</th>
+          <td>YYYY-MM-DD</td>
+          <td>Date of prices that the quote is for.</td>
+        </tr>
+        <tr>
+          <th scope="row">vendor_name</th>
+          <td>string</td>
+          <td>The name of the vendor selling.</td>
+        </tr>
+        <tr>
+          <th scope="row">vendor_url</th>
+          <td>string</td>
+          <td>Url where price was found.</td>
+        </tr>
+        <tr>
+          <th scope="row">vendor_branch</th>
+          <td>string</td>
+          <td>Location or storefront name where specifically purchased.</td>
+        </tr>
+        <tr>
+          <th scope="row">price_per_ounce</th>
+          <td>decimal</td>
+          <td>The price of one ounce of marijuana in USD.</td>
+        </tr>
+        <tr>
+          <th scope="row">jurisdiction</th>
+          <td>string</td>
+          <td>Name of state or "darkweb"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
