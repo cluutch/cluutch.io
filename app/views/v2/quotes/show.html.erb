@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vendor name:</strong>
+  <%= @v2_quote.vendor_name %>
+</p>
+
+<p>
+  <strong>Vendor url:</strong>
+  <%= @v2_quote.vendor_url %>
+</p>
+
+<p>
+  <strong>Vendor branch:</strong>
+  <%= @v2_quote.vendor_branch %>
+</p>
+
+<p>
+  <strong>Is primary:</strong>
+  <%= @v2_quote.is_primary %>
+</p>
+
+<p>
+  <strong>Price per ounce:</strong>
+  <%= @v2_quote.price_per_ounce %>
+</p>
+
+<p>
+  <strong>V2 jurisdiction:</strong>
+  <%= @v2_quote.v2_jurisdiction_id %>
+</p>
+
+<%= link_to 'Edit', edit_v2_quote_path(@v2_quote) %> |
+<%= link_to 'Back', v2_quotes_path %>
