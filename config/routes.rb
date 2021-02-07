@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :v2 do
+    resources :quotes
+  end
+  namespace :v2 do
     resources :jurisdictions
   end
   resources :quotes

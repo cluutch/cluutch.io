@@ -1,0 +1,47 @@
+<%= form_with(model: v2_quote) do |form| %>
+  <% if v2_quote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(v2_quote.errors.count, "error") %> prohibited this v2_quote from being saved:</h2>
+
+      <ul>
+        <% v2_quote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :vendor_name %>
+    <%= form.text_field :vendor_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vendor_url %>
+    <%= form.text_field :vendor_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vendor_branch %>
+    <%= form.text_field :vendor_branch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_primary %>
+    <%= form.check_box :is_primary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_per_ounce %>
+    <%= form.text_field :price_per_ounce %>
+  </div>
+
+  <div class="field">
+    <%= form.label :v2_jurisdiction_id %>
+    <%= form.text_field :v2_jurisdiction_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

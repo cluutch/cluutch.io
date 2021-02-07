@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_122200) do
+ActiveRecord::Schema.define(version: 2021_02_07_152025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,4 +27,23 @@ ActiveRecord::Schema.define(version: 2021_01_19_122200) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "v2_jurisdictions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "v2_quotes", force: :cascade do |t|
+    t.string "vendor_name"
+    t.string "vendor_url"
+    t.string "vendor_branch"
+    t.boolean "is_primary"
+    t.decimal "price_per_ounce"
+    t.bigint "v2_jurisdiction_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["v2_jurisdiction_id"], name: "index_v2_quotes_on_v2_jurisdiction_id"
+  end
+
+  add_foreign_key "v2_quotes", "v2_jurisdictions"
 end

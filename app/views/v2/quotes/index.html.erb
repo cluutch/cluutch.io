@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>V2 Quotes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vendor name</th>
+      <th>Vendor url</th>
+      <th>Vendor branch</th>
+      <th>Is primary</th>
+      <th>Price per ounce</th>
+      <th>V2 jurisdiction</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @v2_quotes.each do |v2_quote| %>
+      <tr>
+        <td><%= v2_quote.vendor_name %></td>
+        <td><%= v2_quote.vendor_url %></td>
+        <td><%= v2_quote.vendor_branch %></td>
+        <td><%= v2_quote.is_primary %></td>
+        <td><%= v2_quote.price_per_ounce %></td>
+        <td><%= v2_quote.v2_jurisdiction_id %></td>
+        <td><%= link_to 'Show', v2_quote %></td>
+        <td><%= link_to 'Edit', edit_v2_quote_path(v2_quote) %></td>
+        <td><%= link_to 'Destroy', v2_quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New V2 Quote', new_v2_quote_path %>
