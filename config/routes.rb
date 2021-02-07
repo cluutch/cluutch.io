@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :v2 do
+    resources :jurisdictions
+  end
   resources :quotes
   namespace :v1 do
     constraints subdomain: 'api' do
