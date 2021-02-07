@@ -6,6 +6,17 @@
       <div class="my-lg-4 my-4">
         <h1 class="display-2">$<%= @price_today %></h1>
         <h1 class="display-6 text-muted">per ounce</h1>
+
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= @selected_jurisdiction %>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <% @jurisdictions.each do |j| %>
+              <li><a class="dropdown-item" href=<%= root_url(j: j) %>><%= j %></a></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
 
       <a href="https://cluutch.substack.com/p/building-a-crypto-weed-app-the-proposal" class="btn btn-link" target="_blank">Learn more</a>
