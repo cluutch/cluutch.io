@@ -1,5 +1,6 @@
 class V2::QuotesController < ApplicationController
   before_action :set_v2_quote, only: %w[ show edit update destroy ]
+  before_action :set_jurisdictions, only: %w[ new edit ]
 
   # GET /v2/quotes
   # GET /v2/quotes.json
@@ -15,7 +16,7 @@ class V2::QuotesController < ApplicationController
   # GET /v2/quotes/new
   def new
     @v2_quote = V2::Quote.new
-    @jurisdictions = V2::Jurisdiction.select(:id, :name).map { |j|  [j.name, j.id] }
+    
   end
 
   # GET /v2/quotes/1/edit
@@ -63,5 +64,9 @@ class V2::QuotesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def v2_quote_params
       params.require(:v2_quote).permit(:date, :vendor_name, :vendor_url, :vendor_branch, :is_primary, :price_per_ounce, :v2_jurisdiction_id)
+    end
+
+    def set_jurisdictions
+      @jurisdictions = V2::Jurisdiction.select(:id, :name).map { |j|  [j.name, j.id] }
     end
 end
