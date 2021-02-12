@@ -31,4 +31,6 @@
 </p>
 
 <%= link_to 'Edit', edit_v2_quote_path(@v2_quote) %> |
-<%= link_to 'Back', v2_quotes_path %>
+<%= link_to 'Back', v2_quotes_path %> |
+<%= link_to 'Clone quote', new_v2_quote_path(clone_id: @v2_quote) %> |
+<%= link_to 'New quote', new_v2_quote_path %>
