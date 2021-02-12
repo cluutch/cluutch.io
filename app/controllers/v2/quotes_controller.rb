@@ -15,8 +15,9 @@ class V2::QuotesController < ApplicationController
 
   # GET /v2/quotes/new
   def new
-    @v2_quote = V2::Quote.new
-    
+    clone_id = params[:clone_id] 
+    template = V2::Quote.find(clone_id) if clone_id.present?
+    @v2_quote = template || V2::Quote.new
   end
 
   # GET /v2/quotes/1/edit
