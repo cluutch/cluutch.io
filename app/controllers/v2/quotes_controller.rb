@@ -15,10 +15,16 @@ class V2::QuotesController < ApplicationController
 
   # GET /v2/quotes/new
   def new
-    clone_id = params[:clone_id]
-    clone = V2::Quote.find(clone_id) if clone_id.present?
-    clone_params = { date: clone.date, is_primary: clone.is_primary, v2_jurisdiction_id: clone.v2_jurisdiction_id } if clone_id.present?
-    @v2_quote = V2::Quote.new clone_params
+    orig_id = params[:clone_id]
+
+    orig = V2::Quote.find(orig_id) if orig_id.present?
+
+    if orig_id.present?
+      @v2_quote = orig.clone
+      puts @v2_quote.date
+    else
+      @v2_quote = V2::Quote.new
+    end
   end
 
   # GET /v2/quotes/1/edit
