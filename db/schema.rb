@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_164332) do
+ActiveRecord::Schema.define(version: 2021_03_05_235525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,18 @@ ActiveRecord::Schema.define(version: 2021_02_07_164332) do
     t.bigint "v2_jurisdiction_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "v2_quotes_submission_id"
     t.index ["v2_jurisdiction_id"], name: "index_v2_quotes_on_v2_jurisdiction_id"
+    t.index ["v2_quotes_submission_id"], name: "index_v2_quotes_on_v2_quotes_submission_id"
+  end
+
+  create_table "v2_quotes_submissions", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "v2_quotes", "v2_jurisdictions"
+  add_foreign_key "v2_quotes", "v2_quotes_submissions"
 
   create_view "v2_avg_prices", sql_definition: <<-SQL
       SELECT q.date,

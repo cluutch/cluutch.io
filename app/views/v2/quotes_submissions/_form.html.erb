@@ -1,0 +1,7 @@
+<%= simple_form_for @v2_quotes_submission do |f| %>
+  <%= f.simple_fields_for :quotes do |quote_form| %>
+    <%= quote_form.input :price_per_ounce %>
+    <%= quote_form.hidden_field :v2_jurisdiction_id %>
+  <% end %> 
+  <%= f.button :submit %>
+<% end %>
