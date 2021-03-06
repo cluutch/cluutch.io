@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>V2 Quotes Submissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @v2_quotes_submissions.each do |v2_quotes_submission| %>
+      <tr>
+        <td><%= link_to 'Show', v2_quotes_submission %></td>
+        <td><%= link_to 'Edit', edit_v2_quotes_submission_path(v2_quotes_submission) %></td>
+        <td><%= link_to 'Destroy', v2_quotes_submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New V2 Quotes Submission', new_v2_quotes_submission_path %>

@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<% @v2_quotes_submission.quotes.each do |quote| %>
+  <h2><%= quote.price_per_ounce %></h2>
+<% end %>
+
+<%= link_to 'Edit', edit_v2_quotes_submission_path(@v2_quotes_submission) %> |
+<%= link_to 'Back', v2_quotes_submissions_path %>
