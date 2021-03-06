@@ -14,9 +14,7 @@ class V2::QuotesSubmissionsController < ApplicationController
 
   # GET /v2/quotes_submissions/new
   def new
-    @v2_quotes_submission = V2::QuotesSubmission.new
-    q = @v2_quotes_submission.quotes.build
-    q.v2_jurisdiction_id = 4
+    @v2_quotes_submission = V2::QuotesSubmission.new_prefilled_form
   end
 
   # GET /v2/quotes_submissions/1/edit

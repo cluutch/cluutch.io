@@ -1,5 +1,22 @@
-<h1>New V2 Quotes Submission</h1>
+<div class="container">
+  <h1>Quotes Submission Form</h1>
 
-<%= render 'form', v2_quotes_submission: @v2_quotes_submission %>
+    <p><strong>Instructions: Click the link below to review the Website. Find the cheapest ounce of weed and enter the price. Follow these rules for knowing which price to use:</strong></p>
 
-<%= link_to 'Back', v2_quotes_submissions_path %>
+    <ul>
+      <li>Only consider "flower". Do not consider edibles, concentrates, hash, or any form of weed other than the bud.</li>
+
+      <li>An ounce is 28g. Always use the prices for product closest in weight to an ounce without going over. If ounce prices are available, use those.</li>
+
+      <li>If there are no prices for exactly an ounce, use multiples of the largest quantity available, without going over. For example, if 1/2 oz. (14g) is selling for $100 cheapest, then the cheapest price for an ounce is $200.</li>
+
+      <li>Do not use prices if they are for more than an ounce. If 2 oz. (56g) are available, do not use their prices. Use the closest quantity for sale less than or equal to an ounce.</li>
+
+      <li>Only consider products that contain some THC. CBD or other types of flower are not to be counted.</li>
+
+      <li>Sativa vs indica is not relevant. Neither are growing conditions, THC concentration, or other attributes. As long as the price is for THC containing flower, it can be included.</li>
+    </ul>
+  <%= render 'form', v2_quotes_submission: @v2_quotes_submission %>
+
+  <%= link_to 'Back', v2_quotes_submissions_path %>
+</div>
