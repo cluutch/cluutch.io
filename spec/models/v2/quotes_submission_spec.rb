@@ -9,7 +9,7 @@ RSpec.describe V2::QuotesSubmission, type: :model do
     expect(submission.quotes[0].date).to eq(Date.today)
     expect(submission.quotes[4].date).to eq(Date.today)
 
-    expect(submission.quotes[3].vendor_branch).to eq("HiLife")
+    expect(submission.quotes[3].vendor_branch).to eq("Las Vegas")
     
     expect(submission.quotes[6].price_per_ounce).to be_nil
   end
