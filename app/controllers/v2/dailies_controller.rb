@@ -3,7 +3,8 @@ class V2::DailiesController < ApplicationController
 
   def index
     selected_jurisdiction = params[:j] || "All U.S."
-    @v2_avg_prices = V2::AvgPrice.where(jurisdiction: selected_jurisdiction).order(date: :desc)
+    date = params[:date]
+    @v2_avg_prices = V2::AvgPrice.where(jurisdiction: selected_jurisdiction).most_recent_on_or_before_date(date)
   end
 
   protected
