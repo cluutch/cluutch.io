@@ -13,4 +13,21 @@ RSpec.describe V2::QuotesSubmission, type: :model do
     
     expect(submission.quotes[6].price_per_ounce).to be_nil
   end
+
+  it 'has a uuid and confirmation token that does not change' do
+    submission = V2::QuotesSubmission.create
+
+    uuid = submission.uuid
+    expect(uuid).to be_truthy
+
+    confirmation_token = submission.confirmation_token
+    expect(confirmation_token).to be_truthy
+
+    # force a new save
+    submission.update(is_confirmed: true)
+
+    # expect no changes
+    expect(submission.uuid).to eq(uuid)
+    expect(submission.confirmation_token).to eq(confirmation_token)
+  end
 end

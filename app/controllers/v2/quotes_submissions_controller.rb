@@ -1,5 +1,6 @@
 class V2::QuotesSubmissionsController < ApplicationController
   before_action :set_v2_quotes_submission, only: %w[ show edit update destroy ]
+  before_action :http_authenticate, only: [:new, :create, :destroy, :index]
 
   # GET /v2/quotes_submissions
   # GET /v2/quotes_submissions.json
@@ -28,7 +29,7 @@ class V2::QuotesSubmissionsController < ApplicationController
 
     respond_to do |format|
       if @v2_quotes_submission.save
-        format.html { redirect_to @v2_quotes_submission, notice: "Quotes submission was successfully created." }
+        format.html { redirect_to v2_quotes_submission_path(@v2_quotes_submission, uuid: @v2_quotes_submission.uuid), notice: "Quotes submission was successfully created." }
         format.json { render :show, status: :created, location: @v2_quotes_submission }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,8 +42,10 @@ class V2::QuotesSubmissionsController < ApplicationController
   # PATCH/PUT /v2/quotes_submissions/1.json
   def update
     respond_to do |format|
-      if @v2_quotes_submission.update(v2_quotes_submission_params)
-        format.html { redirect_to @v2_quotes_submission, notice: "Quotes submission was successfully updated." }
+      if !@v2_quotes_submission.is_confirmed && @v2_quotes_submission.update(v2_quotes_submission_params)
+        puts "UPDATED"
+        puts @v2_quotes_submission.uuid
+        format.html { redirect_to v2_quotes_submission_path(@v2_quotes_submission, uuid: @v2_quotes_submission.uuid), notice: "Quotes submission was successfully updated." }
         format.json { render :show, status: :ok, location: @v2_quotes_submission }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -64,11 +67,12 @@ class V2::QuotesSubmissionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_v2_quotes_submission
-      @v2_quotes_submission = V2::QuotesSubmission.find(params[:id])
+      uuid = params[:uuid] || params[:v2_quotes_submission][:uuid]
+      @v2_quotes_submission = V2::QuotesSubmission.find_by(uuid: uuid, id: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def v2_quotes_submission_params
-      params.require(:v2_quotes_submission).permit(quotes_attributes: [:price_per_ounce, :v2_jurisdiction_id])
+      params.require(:v2_quotes_submission).permit(quotes_attributes: [:id, :price_per_ounce, :v2_jurisdiction_id, :date, :vendor_name, :vendor_url, :vendor_branch, :is_primary])
     end
 end

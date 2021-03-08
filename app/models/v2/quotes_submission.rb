@@ -1,7 +1,10 @@
+require "securerandom"
+
 class V2::QuotesSubmission < ApplicationRecord
   has_many :quotes, class_name: "V2::Quote", inverse_of: :quotes_submission, foreign_key: :v2_quotes_submission_id
   accepts_nested_attributes_for :quotes
-
+  before_save :set_uuids
+  before_save :set_is_confirmed
 
   def self.new_prefilled_form
     prefilled_quotes = [
@@ -42,5 +45,16 @@ class V2::QuotesSubmission < ApplicationRecord
     end
 
     return submission
+  end
+
+  private
+
+  def set_uuids
+    self.uuid = SecureRandom.uuid unless uuid.present?
+    self.confirmation_token = SecureRandom.uuid unless confirmation_token.present?
+  end
+
+  def set_is_confirmed
+    self.is_confirmed = quotes.all? { |quote| quote.price_per_ounce.present? }
   end
 end
