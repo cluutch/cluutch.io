@@ -15,7 +15,7 @@
 <%= simple_form_for @v2_quotes_submission do |f| %>
   <%= f.simple_fields_for :quotes do |quote_form| %>
     <div class="my-4">
-      <a href="<%= quote_form.object.vendor_url%>" target="_blank">Click here for website #<%= quote_form.index+1 %></a>
+      <a href="<%= quote_form.object.vendor_url %>" target="_blank">Click here for website #<%= quote_form.index+1 %></a>
       <%= quote_form.input :price_per_ounce %>
       <%= quote_form.hidden_field :v2_jurisdiction_id %>
       <%= quote_form.hidden_field :date %>
@@ -28,7 +28,10 @@
   <% end %> 
 
   <div class="d-grid gap-2 my-3">
-    <%= f.hidden_field :uuid %>
+    <% if f.object.uuid.present? %>
+      <%= f.hidden_field :uuid %>
+    <% end %>
+
     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
   </div>
 <% end %>
