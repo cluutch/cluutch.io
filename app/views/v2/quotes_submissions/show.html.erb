@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
+<% if @v2_quotes_submission.is_confirmed %>
+  <h2>Confirmation token: <%= @v2_quotes_submission.confirmation_token %></h2>
+<% else %>
+  <h2>Confirmed: <%= @v2_quotes_submission.is_confirmed %></h2>
+<% end %>
 
 <% @v2_quotes_submission.quotes.each do |quote| %>
   <h2><%= quote.price_per_ounce %></h2>
 <% end %>
 
-<%= link_to 'Edit', edit_v2_quotes_submission_path(@v2_quotes_submission) %> |
+<%= link_to 'Edit',  edit_v2_quotes_submission_path(@v2_quotes_submission, uuid: @v2_quotes_submission.uuid) %> |
 <%= link_to 'Back', v2_quotes_submissions_path %>
