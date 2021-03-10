@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_213424) do
+ActiveRecord::Schema.define(version: 2021_03_10_163100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -68,14 +68,14 @@ ActiveRecord::Schema.define(version: 2021_03_07_213424) do
       j.name AS jurisdiction
      FROM (v2_quotes q
        JOIN v2_jurisdictions j ON ((q.v2_jurisdiction_id = j.id)))
-    WHERE (q.date IS NOT NULL)
+    WHERE ((q.date IS NOT NULL) AND (q.price_per_ounce >= (20)::numeric))
     GROUP BY q.date, j.name
   UNION
    SELECT q.date,
       avg(q.price_per_ounce) AS avg_price_per_ounce,
       'All U.S.'::character varying AS jurisdiction
      FROM v2_quotes q
-    WHERE (q.date IS NOT NULL)
+    WHERE ((q.date IS NOT NULL) AND (q.price_per_ounce >= (20)::numeric))
     GROUP BY q.date;
   SQL
 end
