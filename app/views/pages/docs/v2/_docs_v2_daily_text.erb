@@ -1,0 +1,77 @@
+<div class="my-lg-1" id="docs-daily">
+  <h5>Daily Prices</h5>
+  <p>
+    This endpoint 
+    <a href="https://github.com/cluutch/cluutch.io/blob/9900b522a7e4064a4374239178a59f208db2b883/db/views/v2_avg_prices_v02.sql#L1">computes an average</a>
+    price for each day. You can either request all daily prices or specify a date or location you want prices for.
+    By default the average price for All U.S. is returned for all days. 
+  </p>
+
+  <div class="my-lg-4">
+    <h6>HTTP REQUEST</h6>
+    <p><code>GET https://api.cluutch.io/v2/daily</code></p>
+  </div>
+
+  <div class="my-lg-4">
+    <h6>URL PARAMETERS</h6>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Field</th>
+          <th scope="col">Type</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">date</th>
+          <td>YYYY-MM-DD</td>
+          <td>Specific date to get the average price of quotes for. 
+          If no quotes/prices are available on the requested date, the prices from the 
+          <a href="https://github.com/cluutch/cluutch.io/blob/9900b522a7e4064a4374239178a59f208db2b883/app/models/v2/avg_price.rb#L10">closest date without going over</a>
+           will be used. When a date is provided, the result will only contain one element.</td>
+        </tr>
+        <tr>
+          <th scope="row">jurisdiction</th>
+          <td>string</td>
+          <td>The name of the jurisdiction/location that you want prices for. Currently supported values are: 
+          "Darkweb", "Florida", "Nevada", and "Washington, D.C.". 
+          There are also some out-of-date records for "California" and "Colorado".
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="my-lg-4">
+    <h6>RESPONSE</h6>
+    <p>The response will be an array of daily price objects. Each has the fields below.</p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Field</th>
+          <th scope="col">Type</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">date</th>
+          <td>YYYY-MM-DD</td>
+          <td>Date of prices that the quote is for.</td>
+        </tr>
+        <tr>
+          <th scope="row">avg_price_per_ounce</th>
+          <td>decimal</td>
+          <td>The mean of all prices matching the input parameters, in USD.</td>
+        </tr>
+        <tr>
+          <th scope="row">jurisdiction</th>
+          <td>string</td>
+          <td>The location/jurisdiction that the prices correspond to.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
