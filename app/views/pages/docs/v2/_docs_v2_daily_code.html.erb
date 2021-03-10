@@ -1,0 +1,43 @@
+<div class="ps-lg-3 mt-lg-5 my-5">
+    <code>
+    <p>➜ curl https://api.cluutch.io/v2/daily</p>
+
+    <hr/>
+
+    <pre>
+    [
+      ...
+      {
+        "date": "2021-03-08",
+        "avg_price_per_ounce": "219.7442857142857143",
+        "jurisdiction": "All U.S."
+      },
+      {
+        "date": "2021-03-04",
+        "avg_price_per_ounce": "275.2933333333333333",
+        "jurisdiction": "All U.S."
+      },
+      {
+        "date": "2021-02-23",
+        "avg_price_per_ounce": "243.36",
+        "jurisdiction": "All U.S."
+      },
+      ...
+    ]
+    </pre>
+
+    <p>➜ curl "https://api.cluutch.io/v2/daily?jurisdiction=Florida&date=2021-03-08"</p>
+
+    <hr/>
+
+    <pre>
+    [
+      {
+        "date":"2021-03-08",
+        "avg_price_per_ounce":"246.1666666666666667",
+        "jurisdiction":"Florida"
+      }
+    ]
+    </pre>
+  </code>
+</div>
