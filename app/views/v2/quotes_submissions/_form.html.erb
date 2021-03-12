@@ -12,11 +12,14 @@
     <li>Sativa vs indica is not relevant. Neither are growing conditions, THC concentration, or other attributes. As long as the price is for THC containing flower, it can be included.</li>
   </ul>
 
+<h6>WARNING: A typical ounce of weed is $100 - $400. Sometimes the price is more expensive than $400, but it is almost never less than $100. If you are entering prices less than that, you are probably doing something wrong.</h6>
+<p>If the website is not loading, then put $0. If you are SURE that there is no inventory at the vendor, put $0.<p>
+
 <%= simple_form_for @v2_quotes_submission do |f| %>
   <%= f.simple_fields_for :quotes do |quote_form| %>
     <div class="my-4">
       <a href="<%= quote_form.object.vendor_url %>" target="_blank">Click here for website #<%= quote_form.index+1 %></a>
-      <%= quote_form.input :price_per_ounce %>
+      <%= quote_form.input :price_per_ounce, label: 'Price per ounce (28 grams)' %>
       <%= quote_form.hidden_field :v2_jurisdiction_id %>
       <%= quote_form.hidden_field :date %>
       <%= quote_form.hidden_field :vendor_name %>
