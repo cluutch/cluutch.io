@@ -1,6 +1,6 @@
 class V2::AvgPrice < ApplicationRecord
 
-  scope :on_date, ->(date) { where('date = ?', date) if date.present? }
+  scope :on_date, ->(date) { where('DATE(date) = ?', date) if date.present? }
 
   scope :on_or_before_date, ->(date) {
     return on_date(date) if (on_date(date).length > 0)
