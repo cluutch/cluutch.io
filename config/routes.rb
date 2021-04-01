@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :quotes
     resources :jurisdictions
     resources :quotes_submissions
+    post 'quotes_submissions/gen', to: 'quotes_submissions#gen', module: :v2, defaults: { format: 'json' }
     get 'daily', to: 'dailies#index'
   end
 

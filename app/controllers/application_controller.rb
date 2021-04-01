@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery unless: -> { request.format.json? }
   before_action :http_authenticate, only: [:new, :create, :edit, :update, :destroy]
  
   def http_authenticate
