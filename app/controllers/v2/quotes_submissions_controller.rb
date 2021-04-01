@@ -1,6 +1,6 @@
 class V2::QuotesSubmissionsController < ApplicationController
   before_action :set_v2_quotes_submission, only: %w[ show edit update destroy ]
-  before_action :http_authenticate, only: [:new, :create, :destroy, :index]
+  before_action :http_authenticate, only: [:new, :create, :destroy, :index, :gen]
 
   # GET /v2/quotes_submissions
   # GET /v2/quotes_submissions.json
@@ -16,6 +16,18 @@ class V2::QuotesSubmissionsController < ApplicationController
   # GET /v2/quotes_submissions/new
   def new
     @v2_quotes_submission = V2::QuotesSubmission.new_prefilled_form
+  end
+
+  # POST
+  def gen
+    @v2_quotes_submission = V2::QuotesSubmission.new_prefilled_form
+    respond_to do |format|
+      if @v2_quotes_submission.save 
+        format.json { render template: "v2/quotes_submissions/show", status: :created }
+      else
+        format.json { render json: @v2_quotes_submission.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /v2/quotes_submissions/1/edit
