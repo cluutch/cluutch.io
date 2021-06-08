@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     @page_keywords    = 'Weed, API, Marijuana, Crypto, Oracle, Market, Price'
 
     @selected_jurisdiction = params[:j] || "All U.S."
-    selected_avg = V2::AvgPrice.where(jurisdiction: @selected_jurisdiction).order(date: :desc).first
+    selected_avg = V2::AvgPrice.where(jurisdiction: @selected_jurisdiction).where.not(avg_price_per_ounce: nil).order(date: :desc).first
 
     @price_today = selected_avg ? selected_avg.avg_price_per_ounce.try(:round, 2) : -1
     @jurisdictions = V2::AvgPrice.pluck(:jurisdiction).uniq.sort
