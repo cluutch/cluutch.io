@@ -11,3 +11,7 @@ rails s
 ```
 git push heroku main
 ```
+
+## DB copy
+
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -d cluutch_io_development RESTORE_FILE
