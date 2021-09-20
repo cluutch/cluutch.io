@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     get 'daily', to: 'dailies#index'
   end
 
+  namespace :v3 do
+    resources :quotes
+    get 'daily', to: 'dailies#index'
+  end
+
   namespace :v1 do
     constraints subdomain: 'api' do
       get 'quotes', to: 'quotes#index'
