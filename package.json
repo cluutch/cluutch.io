@@ -7,8 +7,8 @@
   "dependencies": {
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.1",
-    "gatsby": "^3.6.2",
-    "gatsby-plugin-gatsby-cloud": "^2.6.1",
+    "gatsby": "^4.0.1",
+    "gatsby-plugin-gatsby-cloud": "^4.1.0-next.0",
     "gatsby-plugin-image": "^1.6.0",
     "gatsby-plugin-manifest": "^3.6.0",
     "gatsby-plugin-offline": "^4.6.0",

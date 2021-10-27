@@ -13,29 +13,21 @@ const ExactNavLink = props => (
 
 const Navbar = ({ siteTitle }) => {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand" href="#">{siteTitle}</Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"
-                aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <a className="navbar-brand" href="/">
+          <img src="/android-icon-36x36.png" alt="" width="30" height="24" className="d-inline-block align-top" />
+        </a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-
-        <div className="collapse navbar-collapse" id="main-navbar">
-          <ul className="navbar-nav me-auto mb-2 mb-md-0">
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <ExactNavLink
-                to="/"
-              >
-                Home
-              </ExactNavLink>
+              <a className="nav-link" href="https://cluutch.substack.com" target="_blank">Blog</a>
             </li>
             <li className="nav-item">
-              <ExactNavLink
-                to="/about"
-              >
-                About
-              </ExactNavLink>
+              <a className="nav-link" href="https://github.com/cluutch/cluutch.io" target="_blank">Code</a>
             </li>
           </ul>
         </div>
