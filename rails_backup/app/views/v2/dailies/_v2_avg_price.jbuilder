@@ -1,1 +1,0 @@
-json.extract! v2_avg_price, :date, :avg_price_per_ounce, :jurisdiction

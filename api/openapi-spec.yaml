@@ -1,0 +1,21 @@
+swagger: "2.0"
+info:
+  title: Cluutch API
+  description: Daily weed prices by city
+  version: 1.0.0
+host: api.cluutch.io
+basePath: /v3
+schemes:
+  - https
+paths:
+  /dailies:
+    get:
+      summary: Returns the average price for an ounce of weed by day.
+      operationId: get-dailies
+      x-google-backend:
+        address: https://us-central1-cluutch.cloudfunctions.net/get-dailies
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK

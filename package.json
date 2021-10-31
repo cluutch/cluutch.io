@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Richard Raduly <richard@raduly.fr>",
   "dependencies": {
+    "@datapunt/matomo-tracker-react": "^0.5.1",
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.1",
     "gatsby": "^4.0.1",

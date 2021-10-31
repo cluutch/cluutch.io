@@ -9,8 +9,15 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 
 function Seo({ description, lang, meta, title }) {
+  const { trackPageView } = useMatomo()
+
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -39,6 +46,10 @@ function Seo({ description, lang, meta, title }) {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: `weed marijuana price cost crypto oracle ounce`
         },
         {
           property: `og:title`,
