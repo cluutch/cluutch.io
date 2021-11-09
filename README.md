@@ -1,39 +1,11 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-   Gatsby Bootstrap 5 starter
-</h1>
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2496959d-1507-4717-8fd6-846282c3a409/deploy-status)](https://app.netlify.com/sites/gatsby-bootstrap-5/deploys)
-![dependancies](https://img.shields.io/david/r-ichard/gatsby-starter-bootstrap-5)
-
-Minimal bootstrap 5 and Gatsby configuration with SCSS support. 
-
-Demo here : https://gatsby-bootstrap-5.netlify.app
-
-## 📋 Available options
-
-- You can theme bootstrap via `src/components/layout.scss`
-
-## 🚀 How to install
-
-Use the Gatsby CLI to create a new site. 
-
-```shell
-# create a new Gatsby site using the default starter
-gatsby new gatsby-starter-bootstrap-5 https://github.com/r-ichard/gatsby-starter-bootstrap-5
-```
-
 
 ## ✏️ How to develop locally
 
 1.  Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd gatsby-starter-bootstrap-5/
+    cd cluutch.io/
+    npm i
     gatsby develop
     ```
 
