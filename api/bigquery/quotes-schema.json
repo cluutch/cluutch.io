@@ -1,0 +1,54 @@
+[
+    {
+      "name": "city",
+      "type": "STRING"
+    },
+    {
+      "name": "grams_raw",
+      "type": "FLOAT"
+    },
+    {
+      "name": "marketplace_name",
+      "type": "STRING"
+    },
+    {
+      "name": "merchant_img_url",
+      "type": "STRING"
+    },
+    {
+      "name": "merchant_name",
+      "type": "STRING"
+    },
+    {
+      "name": "price_per_ounce",
+      "type": "FLOAT"
+    },
+    {
+      "name": "price_raw",
+      "type": "FLOAT"
+    },
+    {
+      "name": "product_img_url",
+      "type": "STRING"
+    },
+    {
+      "name": "product_name",
+      "type": "STRING"
+    },
+    {
+      "name": "scrape_date",
+      "type": "TIMESTAMP"
+    },
+    {
+      "name": "state",
+      "type": "STRING"
+    },
+    {
+      "name": "tags",
+      "type": "STRING"
+    },
+    {
+      "name": "url",
+      "type": "STRING"
+    }
+  ]

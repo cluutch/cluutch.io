@@ -7,10 +7,11 @@ const WeedPriceBanner = ({ siteTitle }) => {
   const [price, setPrice] = useState(0)
   useEffect(() => {
     // get data from GitHub api
-    fetch('https://us-central1-cluutch.cloudfunctions.net/cluutch-get-price-today')
+    fetch('https://cluutch-api-gateway-bh8jku5i.uc.gateway.dev/v3/dailies')
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
-        setPrice(resultData.avg_price_per_ounce)
+        const avg_price_today = resultData[0].avg_price_per_ounce
+        setPrice(avg_price_today)
       }) // set data for the number of stars
   }, [])
 
