@@ -7,6 +7,7 @@
   "dependencies": {
     "@datapunt/matomo-tracker-react": "^0.5.1",
     "@popperjs/core": "^2.9.2",
+    "@switchboard-xyz/switchboard-api": "^0.2.154",
     "bootstrap": "^5.0.1",
     "gatsby": "^4.0.1",
     "gatsby-plugin-gatsby-cloud": "^4.1.0-next.0",
