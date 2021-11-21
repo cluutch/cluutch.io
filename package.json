@@ -9,6 +9,7 @@
     "@popperjs/core": "^2.9.2",
     "@switchboard-xyz/switchboard-api": "^0.2.154",
     "bootstrap": "^5.0.1",
+    "chart.js": "^3.6.0",
     "gatsby": "^4.0.1",
     "gatsby-plugin-gatsby-cloud": "^4.1.0-next.0",
     "gatsby-plugin-image": "^1.6.0",
@@ -19,12 +20,11 @@
     "gatsby-plugin-sharp": "^3.6.0",
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-transformer-sharp": "^3.6.0",
-    "plotly.js": "^2.6.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-chartjs-2": "^3.3.0",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-plotly.js": "^2.5.1",
     "sass": "1.32.13"
   },
   "devDependencies": {
