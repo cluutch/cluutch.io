@@ -58,19 +58,19 @@ const WeedPriceBanner = ({ siteTitle }) => {
 
   return (
     <section className="mt-lg-5 mt-3 text-center container">
-    <div className="row">
-      <div className="col text-center">
-        <h4>TODAY the price of weed is</h4>
+      <div className="row">
+        <div className="col text-center">
+          <h4>one ounce of weed</h4>
 
-        <div className="my-lg-4 my-4">
-          <h1 className="display-2">{priceFriendly}</h1>
-          <h1 className="display-6 text-muted">per ounce</h1>
+          <div className="my-lg-4 my-4">
+            <h1 className="display-2">{priceFriendly}</h1>
+            <h1 className="display-6 text-muted">in USA today</h1>
+          </div>
+
+          <span>Solana oracle price: {solanaPriceFriendly}</span><br />
+          <a href="https://cluutch.substack.com" className="btn btn-link" target="_blank">Learn more</a>
         </div>
-
-        <span>Solana oracle price: {solanaPriceFriendly}</span><br />
-        <a href="https://cluutch.substack.com" className="btn btn-link" target="_blank">Learn more</a>
       </div>
-    </div>
   </section>
   )
 }
