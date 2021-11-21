@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import Plot from 'react-plotly.js'
+import { Line } from 'react-chartjs-2';
 
 const WeedPriceGraph = ({ }) => {
   // ----------------------
@@ -12,8 +12,8 @@ const WeedPriceGraph = ({ }) => {
     fetch('https://cluutch-api-gateway-bh8jku5i.uc.gateway.dev/v3/dailies')
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
-        const x = resultData.map(el => el.date.value)
-        const y = resultData.map(el => el.avg_price_per_ounce)
+        const x = resultData.map(el => el.date.value).reverse()
+        const y = resultData.map(el => el.avg_price_per_ounce).reverse()
         setX(x)
         setY(y)
       }) // set data for the number of stars
@@ -29,21 +29,41 @@ const WeedPriceGraph = ({ }) => {
     yData = y
   }
 
+  const data = {
+    labels: xData,
+    datasets: [{
+      label: '$ per ounce',
+      data: yData,
+      fill: false,
+      borderColor: '#69a82d',
+      tension: 0.1
+    }]
+  };
+
+  const options = {
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    scales: {
+      y: {
+          ticks: {
+              // Include a dollar sign in the ticks
+              callback: function(value, index, values) {
+                  return '$' + value;
+              }
+          }
+      }
+    }
+  };
+
   return (
     <section className="container">
       <div className="row">
-          <Plot
-            data={[
-              {
-                x: xData,
-                y: yData,
-                type: 'scatter',
-                mode: 'lines+markers',
-                marker: {color: '#69a82d'},
-              }
-            ]}
-            layout={ {yaxis: {tickprefix: '$'}} }
-          />
+        <div className="col">
+          <Line data={data} options={options} />
+        </div>
       </div>
   </section>
 
