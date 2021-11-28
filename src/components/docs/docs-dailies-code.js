@@ -7,7 +7,7 @@ const DocsDailiesCode = ({ siteTitle }) => {
         <div className="col-lg-4 bg-light">
             <div class="ps-lg-3 mt-lg-5 my-5">
                 <code>
-                <p>➜ curl https://cluutch-api-gateway-bh8jku5i.uc.gateway.dev/v3/dailies</p>
+                <p>➜ curl https://api.cluutch.io/v3/dailies</p>
 
                 <pre>{`
 [
