@@ -9,7 +9,7 @@ const WeedPriceGraph = ({ }) => {
   const [y, setY] = useState(0)
   useEffect(() => {
     // get data from GitHub api
-    fetch('https://cluutch-api-gateway-bh8jku5i.uc.gateway.dev/v3/dailies')
+    fetch('https://api.cluutch.io/v3/dailies')
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
         const x = resultData.map(el => el.date.value).reverse()

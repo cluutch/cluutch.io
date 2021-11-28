@@ -16,8 +16,7 @@ const DocsIntro = ({ siteTitle }) => {
             <div className="my-lg-4">
                 <h4>API URL</h4>
                 <ul className="list-unstyled">
-                    <li>We are in the process of migrating DNS. The current URL is long.</li>
-                    <li><a href="https://cluutch-api-gateway-bh8jku5i.uc.gateway.dev/v3">https://cluutch-api-gateway-bh8jku5i.uc.gateway.dev/v3</a></li>
+                    <li><a href="https://api.cluutch.io/v3">https://api.cluutch.io/v3</a></li>
                 </ul>
             </div>
             

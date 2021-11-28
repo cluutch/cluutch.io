@@ -13,7 +13,7 @@ const DocsDailiesText = ({ siteTitle }) => {
 
             <div class="my-lg-4">
                 <h6>HTTP REQUEST</h6>
-                <p><code>GET https://cluutch-api-gateway-bh8jku5i.uc.gateway.dev/v3/dailies</code></p>
+                <p><code>GET https://api.cluutch.io/v3/dailies</code></p>
             </div>
 
             <div class="my-lg-4">
