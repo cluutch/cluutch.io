@@ -1,7 +1,8 @@
 import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import WeedPriceBanner from "../components/weed-price-banner"
+import CluutchPriceBanner from "../components/cluutch-price-banner"
+import SolanaPriceBanner from "../components/solana-price-banner"
 import WeedPriceGraph from "../components/weed-price-graph"
 import Docs from "../components/docs/docs"
 
@@ -9,7 +10,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <Seo title="Home" />
-      <WeedPriceBanner />
+      <CluutchPriceBanner />
+      <SolanaPriceBanner />
       <WeedPriceGraph />
       <Docs />
     </Layout>
