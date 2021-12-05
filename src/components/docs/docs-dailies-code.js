@@ -5,7 +5,7 @@ const DocsDailiesCode = ({ siteTitle }) => {
 
     return (
         <div className="col-lg-4 bg-light">
-            <div class="ps-lg-3 mt-lg-5 my-5">
+            <div className="ps-lg-3 mt-lg-5 my-5">
                 <code>
                 <p>➜ curl https://api.cluutch.io/v3/dailies</p>
 
