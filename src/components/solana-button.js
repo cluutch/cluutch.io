@@ -25,7 +25,7 @@ export const SolanaButton = ({ children, ...props }) => {
     const { publicKey, wallet, sendTransaction } = useWallet();
     const [copied] = useState(false);
     const [active, setActive] = useState(false);
-    const ref = useRef<HTMLUListElement>(null);
+    const ref = useRef(null);
 
     const base58 = useMemo(() => publicKey?.toBase58(), [publicKey]);
     const content = useMemo(() => {
