@@ -28,6 +28,9 @@ const Navbar = ({ siteTitle }) => {
             <li className="nav-item">
               <a className="nav-link" href="https://github.com/cluutch/cluutch.io" target="_blank">Code</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="https://datastudio.google.com/reporting/1cae811c-b653-43e9-a813-0ff0b947a9dc/page/TB4hC" target="_blank">Dashboard</a>
+            </li>
           </ul>
         </div>
       </div>
