@@ -4,6 +4,7 @@ import Seo from "../components/seo"
 import CluutchPriceBanner from "../components/cluutch-price-banner"
 import SolanaPriceBanner from "../components/solana-price-banner"
 import WeedPriceGraph from "../components/weed-price-graph"
+import NftBanner from "../components/nft-banner"
 import Docs from "../components/docs/docs"
 
 const IndexPage = () => {
@@ -13,6 +14,7 @@ const IndexPage = () => {
       <CluutchPriceBanner />
       <SolanaPriceBanner />
       <WeedPriceGraph />
+      <NftBanner />
       <Docs />
     </Layout>
   )

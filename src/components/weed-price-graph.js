@@ -59,7 +59,7 @@ const WeedPriceGraph = ({ }) => {
   };
 
   return (
-    <section className="container">
+    <section className="container py-3">
       <div className="row">
         <div className="col">
           <Line data={data} options={options} />
