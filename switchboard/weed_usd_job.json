@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "httpTask": {
+        "url": "https://api.cluutch.io/v3/dailies"
+      }
+    },
+    {
+      "jsonParseTask": {
+        "path": "$[0].avg_price_per_ounce"
+      }
+    }
+  ]
+}
