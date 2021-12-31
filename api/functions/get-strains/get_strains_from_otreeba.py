@@ -3,7 +3,9 @@ import os
 import logging
 import time
 import google.cloud.logging
+
 from google.cloud import bigquery
+from flask import Flask
 
 """
 Loads all Otreeba strains into a BigQuery table.
@@ -18,6 +20,7 @@ BQ_TABLE_NAME = os.environ['BQ_TABLE_NAME']
 
 # API max is 50 https://api.otreeba.com/swagger/#/Strains/getStrains
 MAX_RESULTS_PER_PAGE = int(os.getenv('MAX_RESULTS_PER_PAGE', 50))
+START_AT_PAGE = int(os.getenv('START_AT_PAGE', 1))
 SORT = '-createdAt'
 NUM_PAGES_TO_PROCESS = int(os.getenv('NUM_PAGES_TO_PROCESS', 1))
 
@@ -72,10 +75,11 @@ def convert_otreeba_strains_to_cluutch_strains(otreeba_strains):
     cluutch_strains = map(convert_otreeba_strain_to_cluutch_strain, otreeba_strains)
     return list(cluutch_strains)
 
-def get_all_strains(event, context=None):
+# def get_all_strains(event, context=None):
+def get_all_strains():
     logging.info("Going to fetch and load all strains from Otreeba.")
 
-    page_count = 1
+    page_count = START_AT_PAGE
     while NUM_PAGES_TO_PROCESS < 0 or page_count <= NUM_PAGES_TO_PROCESS:
         logging.info("Processing page %s" % page_count)
         otreeba_strains = get_otreeba_strains(page_count)
@@ -86,10 +90,22 @@ def get_all_strains(event, context=None):
         logging.info("Processed page %s" % page_count)
 
         if len(cluutch_strains) < MAX_RESULTS_PER_PAGE:
+            logging.info("Finished processing all strains from Otreeba API.")
             break
         else:
             page_count += 1
             time.sleep(SLEEP_SECONDS)
 
-    
-# get_all_strains()
+##########
+# Flask app
+
+app = Flask(__name__)
+
+@app.route("/")
+def get_all_strains_endpoint():
+    logging.info("Flask endpoint hit")
+    get_all_strains()
+    return True
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
