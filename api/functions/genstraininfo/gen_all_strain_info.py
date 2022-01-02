@@ -167,7 +167,14 @@ def get_strain_info():
       update_strain_info(strain_info, csvrow)
 
     summarize_strain_info(strain_info)
+    logging.info(json.dumps(strain_info, indent=4))
     return strain_info
 
-strain_info = get_strain_info()
-print(json.dumps(strain_info, indent=4))
+def gen_info_for_all_strains():
+  return []
+
+# strain_info = get_strain_info()
+
+# get all strains with quotes
+# loop through each and get all quotes for strain
+# get strain info for each
