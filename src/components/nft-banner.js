@@ -10,10 +10,10 @@ const NftBanner = ({ }) => {
       </div>
 
 
-      <a href="https://cluutch.holaplex.com/listings/EAnZjYKTj2USL19Wdzku7dL7q6mYoi6UMZhDiSkNDU1P" target="_blank">
+      <a href="https://cluutch.holaplex.com/listings/EtkbNPfofjm5mtVEbweTv4wFBWwmyMy1xH3MWQPdAaK4" target="_blank">
         <StaticImage 
-          src="../images/moonbow_nft.png" 
-          alt="Blunt Facts #1: Moonbow"
+          src="../images/amnesia_haze.png" 
+          alt="Blunt Facts #2: Amnesia Haze"
           placeholder="blurred"
           height={375}/>
       </a>
