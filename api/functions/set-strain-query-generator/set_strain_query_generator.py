@@ -32,6 +32,11 @@ BLOCKLIST = [
 ]
 
 PRIORITY_STRAINS = [
+    'laughing buddha',
+    'fig farm',
+    'chemdog',
+    'forbidden fruit',
+    'devil fruit',
     'amnesia haze',
     'moonbow'
 ]
@@ -50,12 +55,14 @@ def write_otreeba_strain_to_query(query_file, strain_row):
         query_file.write("WHEN CONTAINS_SUBSTR(product_name,'%s') then '%s'\n" % 
             (strain_name, strain_name))
 
+
 def write_otreeba_strains_to_query(query_file, strains_filename):
     with open(strains_filename) as f:
         reader = csv.reader(f)
         next(reader, None)
         for row in reader:
             write_otreeba_strain_to_query(query_file, row)
+
 
 def write_custom_strain_to_query(query_file, strain_row):
     strain_match = strain_row[0].lower().replace("'", '\\\'')
@@ -65,6 +72,7 @@ def write_custom_strain_to_query(query_file, strain_row):
     query_file.write("WHEN CONTAINS_SUBSTR(product_name,'%s') then '%s'\n" % 
         (strain_match, strain_name))
 
+
 def write_custom_strains_to_query(query_file, custom_strains):
     with open(custom_strains) as f:
         reader = csv.reader(f)
@@ -72,10 +80,12 @@ def write_custom_strains_to_query(query_file, custom_strains):
         for row in reader:
             write_custom_strain_to_query(query_file, row)
 
+
 def write_priority_strains_to_query(query_file, priority_strains):
     for priority_strain in priority_strains:
         query_file.write("WHEN CONTAINS_SUBSTR(product_name,'%s') then '%s'\n" % 
             (priority_strain, priority_strain))
+
 
 def write_start_to_query(query_file):
     lines = [
@@ -113,17 +123,19 @@ def write_start_to_query(query_file):
     ]
     query_file.writelines(lines)
 
+
 def write_end_to_query(query_file):
     lines = [
         "\t\tELSE null\n",
         "\tEND\n",
         "\tAS strain,\n",
-        "\tLOWER(REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(tags, 'Flower;?', ''), 'Hybrid;?', ''), 'Sativa;?', ''), 'Indica;?', ''), strain, '') as tags,\n"
+        "\tLOWER(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(tags, 'Flower;?', ''), 'Hybrid;?', ''), 'Sativa;?', ''), 'Indica;?', '')) as tags,\n"
         "\t* EXCEPT(product_name, tags),\n",
         "\tCAST(DATE(scrape_date) AS DATE) as `date`\n",
         "FROM `cluutch.api_cluutch_io.quotes`"
     ]
     query_file.writelines(lines)
+
 
 def generate_query():
     query_file = open(QUERY_FILENAME, "w")

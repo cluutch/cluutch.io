@@ -29,6 +29,11 @@ SELECT
 	CONTAINS_SUBSTR(tags, 'Energetic') as is_energetic,
 	product_name,
 	CASE
+WHEN CONTAINS_SUBSTR(product_name,'laughing buddha') then 'laughing buddha'
+WHEN CONTAINS_SUBSTR(product_name,'fig farm') then 'fig farm'
+WHEN CONTAINS_SUBSTR(product_name,'chemdog') then 'chemdog'
+WHEN CONTAINS_SUBSTR(product_name,'forbidden fruit') then 'forbidden fruit'
+WHEN CONTAINS_SUBSTR(product_name,'devil fruit') then 'devil fruit'
 WHEN CONTAINS_SUBSTR(product_name,'amnesia haze') then 'amnesia haze'
 WHEN CONTAINS_SUBSTR(product_name,'moonbow') then 'moonbow'
 WHEN CONTAINS_SUBSTR(product_name,'snow wookie') then 'snow wookie'
@@ -4095,7 +4100,7 @@ WHEN CONTAINS_SUBSTR(product_name,'ak-') then 'ak'
 		ELSE null
 	END
 	AS strain,
-	LOWER(REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(tags, 'Flower;?', ''), 'Hybrid;?', ''), 'Sativa;?', ''), 'Indica;?', ''), strain, '') as tags,
+	LOWER(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(tags, 'Flower;?', ''), 'Hybrid;?', ''), 'Sativa;?', ''), 'Indica;?', '')) as tags,
 	* EXCEPT(product_name, tags),
 	CAST(DATE(scrape_date) AS DATE) as `date`
 FROM `cluutch.api_cluutch_io.quotes`

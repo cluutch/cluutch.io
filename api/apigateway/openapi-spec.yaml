@@ -19,3 +19,20 @@ paths:
       responses:
         200:
           description: OK
+  /strain:
+    get:
+      summary: Returnes information about this strain, including price and tags.
+      operationId: get-strain-info
+      parameters:
+        - in: query
+          name: strain
+          type: string
+          description: The strain to retrieve information about.
+          required: true
+      x-google-backend:
+        address: https://us-central1-cluutch.cloudfunctions.net/get-strain-info
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK

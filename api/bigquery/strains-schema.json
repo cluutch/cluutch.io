@@ -1,0 +1,40 @@
+[
+    {
+      "name": "name",
+      "type": "STRING"
+    },
+    {
+        "name": "ocpc",
+        "type": "STRING"
+    },
+    {
+        "name": "url",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "image_url",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "seed_company_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "seed_company_ocpc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "genetics",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "genetics_cross_ocpc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+  ]
