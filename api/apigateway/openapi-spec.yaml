@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   title: Cluutch API
-  description: Daily weed prices by city
+  description: Daily weed prices by ounce.
   version: 1.0.0
 host: api.cluutch.io
 basePath: /v3
@@ -19,10 +19,10 @@ paths:
       responses:
         200:
           description: OK
-  /strain:
+  /blunt-facts:
     get:
-      summary: Returnes information about this strain, including price and tags.
-      operationId: get-strain-info
+      summary: Returns blunt facts about weed straints, including price and tags.
+      operationId: get-blunt-facts
       parameters:
         - in: query
           name: strain
@@ -30,7 +30,7 @@ paths:
           description: The strain to retrieve information about.
           required: true
       x-google-backend:
-        address: https://us-central1-cluutch.cloudfunctions.net/get-strain-info
+        address: https://us-central1-cluutch.cloudfunctions.net/get-blunt-facts
       produces:
         - application/json
       responses:
