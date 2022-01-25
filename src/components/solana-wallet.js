@@ -11,20 +11,16 @@ import {
 } from '@solana/wallet-adapter-wallets';
 import {
     WalletModalProvider,
-    WalletMultiButton,
-    WalletDisconnectButton,
-    WalletModalButton,
-    WalletConnectButton
 } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 import { useWallet } from '@solana/wallet-adapter-react';
 
-import { SolanaButton } from './solana-button';
-
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
 
-export const SolanaWallet = () => {
+export const SolanaWallet = (props) => {
+    console.log("props");
+    console.log(props);
     // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
     const network = WalletAdapterNetwork.Mainnet;
 
@@ -49,7 +45,7 @@ export const SolanaWallet = () => {
         <ConnectionProvider endpoint={endpoint}>
             <WalletProvider wallets={wallets} autoConnect>
               <WalletModalProvider>
-                <SolanaButton />
+                {props.button}
               </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>

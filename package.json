@@ -1,11 +1,12 @@
 {
-  "name": "@r-ichard/gatsby-starter-bootstrap-5",
+  "name": "@cluutch/cluutch.io",
   "private": false,
-  "description": "A simple starter to get up and developing quickly with Gatsby and Bootstrap 5",
+  "description": "Website for cluutchh.io",
   "version": "0.1.0",
-  "author": "Richard Raduly <richard@raduly.fr>",
+  "author": "Cluutch <code@cluutch.io>",
   "dependencies": {
     "@datapunt/matomo-tracker-react": "^0.5.1",
+    "@metaplex/js": "^4.11.7",
     "@popperjs/core": "^2.9.2",
     "@solana/wallet-adapter-base": "^0.7.0",
     "@solana/wallet-adapter-react": "^0.13.1",

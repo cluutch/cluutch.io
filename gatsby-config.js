@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Cluutch`,
-    description: `API and crypto oracle for weed prices.`,
+    title: `Cluutch weed API and crypto oracle`,
+    description: `Public API to get daily weed prices and strain information. Data is also published onto Solana and Blunt Fact NFTs are minted weekly.`,
     author: `Cluutch`,
   },
   plugins: [
