@@ -1,28 +1,19 @@
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
+import { actions, Connection } from '@metaplex/js'
 
 import {
   WalletConnectButton,
   WalletModalButton
 } from '@solana/wallet-adapter-react-ui';
 
-
-import {
-  Account,
-  PublicKey,
-  Keypair,
-  Transaction,
-  SystemProgram
-} from "@solana/web3.js";
-
-import {
-  updateFeed
-} from "@switchboard-xyz/switchboard-api";
+const nftMetadataUri = 'https://storage.googleapis.com/blunt-facts-nfts/fig-farm-blunt-facts-44.json';
 
 export const ButtonMintNft = ({ children, ...props }) => {
-  const { connection } = useConnection();
+    const connection = new Connection();
     const { publicKey, wallet, sendTransaction } = useWallet();
+    const walletSigner = useWallet();
     const [copied] = useState(false);
     const [active, setActive] = useState(false);
     const ref = useRef(null);
@@ -59,42 +50,21 @@ export const ButtonMintNft = ({ children, ...props }) => {
     const onClick = useCallback(async () => {
       if (!publicKey) throw new WalletNotConnectedError();
 
-      const intermediateKeypair = Keypair.generate();
-      let intermediateAccount = new Account(intermediateKeypair.secretKey);
-      console.log(intermediateKeypair.secretKey)
-      let dataFeedPubkey = new PublicKey("GvNzEWX3hV9aowJbRvjw3Avnp6ynP9XKVC2SFTRCJ3fv");
-      let updateAuthPubkey = new PublicKey("2LRYNyofDe8XiMpkYqKFVNTr3oDmVFjEEhMZwuoEh8BU");
-
-      const transaction = new Transaction({feePayer: publicKey}).add(
-          SystemProgram.transfer({
-              fromPubkey: publicKey,
-              toPubkey: intermediateKeypair.publicKey,
-              lamports: 10000,
-          })
-      );
-
-      const signature = await sendTransaction(transaction, connection);
-      console.log(`10000 lamport sent from ${publicKey} to ${intermediateKeypair.publicKey}`)
-
-      await connection.confirmTransaction(signature, 'processed');
-      console.log("Transfer processed")
-      await connection.confirmTransaction(signature, 'finalized');
-      console.log("Transfer finalized")
-
       try {
-        let updateSignature = await updateFeed(
+        console.log(`Public key: ${publicKey}`);
+        const params = {
           connection,
-          intermediateAccount, 
-          dataFeedPubkey,
-          updateAuthPubkey
-        );
-
-        console.log(`Updated feed on ${updateSignature}`)
-  
+          wallet: walletSigner,
+          uri: nftMetadataUri,
+          maxSupply: 0
+        }
+        const resp = await actions.mintNFT(params)
+        console.log(`Minted NFT successfully`)
+        console.log(resp);
       } catch (error) {
         console.error(error)
       }
-  }, [publicKey, sendTransaction, connection]);
+  }, [publicKey, wallet, connection]);
 
     if (!wallet) return <WalletModalButton {...props}>{children}</WalletModalButton>;
     if (!base58) return <WalletConnectButton {...props}>{children}</WalletConnectButton>;
