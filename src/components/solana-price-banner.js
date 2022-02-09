@@ -8,6 +8,7 @@ import {
 } from "@switchboard-xyz/switchboard-api";
 
 import { SolanaWallet } from "./solana-wallet"
+import { ButtonRefreshOracle } from './button-refresh-oracle';
 
 const DATA_FEED_PUBLIC_KEY_STR = 'GvNzEWX3hV9aowJbRvjw3Avnp6ynP9XKVC2SFTRCJ3fv'
 const SOLANA_URL = "https://free.rpcpool.com";
@@ -43,6 +44,7 @@ const SolanaPriceBanner = ({ siteTitle }) => {
     alignItems: 'center',
     justifyContent: 'center'
   }
+  const button = <ButtonRefreshOracle />
 
   return (
     <section className="text-center container">
@@ -50,7 +52,7 @@ const SolanaPriceBanner = ({ siteTitle }) => {
         <div className="col text-center">
           <div><h4 className="text-primary">Solana oracle price: {solanaPriceFriendly}</h4></div>
             <div className="d-flex" style={style}>
-              <SolanaWallet />
+              <SolanaWallet button={button} />
             </div>
           <div><a href="https://cluutch.substack.com" className="btn btn-link" target="_blank">Learn more</a></div>
         </div>

@@ -20,7 +20,7 @@ import {
   updateFeed
 } from "@switchboard-xyz/switchboard-api";
 
-export const SolanaButton = ({ children, ...props }) => {
+export const ButtonRefreshOracle = ({ children, ...props }) => {
   const { connection } = useConnection();
     const { publicKey, wallet, sendTransaction } = useWallet();
     const [copied] = useState(false);

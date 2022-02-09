@@ -49,7 +49,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `keywords`,
-          content: `weed marijuana price cost crypto oracle ounce`
+          content: `weed, marijuana, API, price, cost, crypto, oracle, ounce, NFT, weed API, strains, strain API`
         },
         {
           property: `og:title`,
