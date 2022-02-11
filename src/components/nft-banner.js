@@ -48,8 +48,9 @@ const NftBanner = ({ }) => {
         </div>
         <div className="col">
           <h4>{bluntFactTitle}</h4>
-          <p>Click button below to mint a new NFT.</p>
+          <p>Click button below to mint a new NFT. For the moment, only Cluutch creators can do this.</p>
           <SolanaWallet button={button} />
+          
         </div>
       </div>
     </section>
