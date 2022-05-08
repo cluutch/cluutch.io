@@ -1,0 +1,7 @@
+requests==2.27.1
+functions-framework==3.0.0
+flask==2.0.2
+google-cloud-error-reporting==1.4.1
+numpy==1.22.1
+Pillow==9.0.0
+google-cloud-storage==1.42.2

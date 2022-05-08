@@ -43,9 +43,36 @@ exports.getStrainInfo = async (req, res) => {
     console.log(`Job ${job.id} completed.`);
 
     if (rows.length > 0) {
+      console.log(`Got ${rows.length} results, returning strain info.`)
       res.status(200).send(rows[0]);
     } else {
-      res.status(400)
+      console.log(`Did not get any results, will expand scope to quotes without price.`)
+      let query2 = `SELECT * FROM \`cluutch.api_cluutch_io.quotes_by_strain_no_price\``;
+      query2 = `${query2} where strain = '${strain}'`
+      
+      // For all options, see https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query
+      const options2 = {
+        query: query2,
+        // Location must match that of the dataset(s) referenced in the query.
+        location: 'us-central1',
+      };
+      
+      // Run the query as a job
+      const [job2] = await bigquery.createQueryJob(options2);
+      console.log(`Job retry ${job2.id} started.`);
+
+      // Wait for the query to finish
+      const [rows2] = await job2.getQueryResults();
+
+      // Print the results
+      console.log(`Job retry ${job2.id} completed.`);
+      if (rows2.length > 0) {
+        console.log(`Backup got ${rows2.length} results, returning strain info.`)
+        res.status(200).send(rows2[0]);
+      } else {
+        console.log("Could not find any results without price either. Exiting. Consider adding logic for cases where the strain has no price or strain info.")
+        res.status(400);
+      }
     }
   }
 };
